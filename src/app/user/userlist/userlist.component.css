@@ -6,3 +6,7 @@ p,td{
     font-family: IRANSans;
     /* font-size: 20px; */
 }
+table, th, td ,tr{
+  padding-left: 10px;
+  padding-right: 10px;
+}

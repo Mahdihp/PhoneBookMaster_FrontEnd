@@ -1,57 +1,94 @@
 <h1>
-    User List
+  User List
 </h1>
 <div *ngIf="users">
-    <table mat-table class="mat-elevation-z8">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">User Name </th>
-                <th scope="col">Password</th>
-                <th scope="col">Display Name</th>
-                <th scope="col">Update</th>
-                <th scope="col">Delete</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let user of users.dataList;let i = index">
-            <tr>
-                <td>{{i+1}}</td>
-                <td>{{user.username}}</td>
-                <td>{{user.password}}</td>
-                <td>{{user.displayname}}</td>
-                <td><button ata-toggle="modal" data-target="#userModal" type="button" (click)="reloadData()" class="btn btn-primary">Update</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
-        </tbody>
-    </table>
+  <table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Password</th>
+      <th scope="col">Display Name</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let user of users.dataList;let i = index">
+    <tr>
+      <td>{{i+1}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.password}}</td>
+      <td>{{user.displayname}}</td>
+      <td>
+        <button (click)="openModal(template)" mat-raised-button>
+          <i class="material-icons">
+            save
+          </i> Update
+        </button>
+      </td>
+      <td>
+        <button type="button" mat-raised-button>
+          <i class="material-icons">
+            delete
+          </i>Delete
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <br>
+  <hr>
+  <br>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="userId">
+      <th mat-header-cell *matHeaderCellDef> No.</th>
+      <td mat-cell *matCellDef="let element"> {{element.index}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef> User Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.username}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="password">
+      <th mat-header-cell *matHeaderCellDef> Password</th>
+      <td mat-cell *matCellDef="let element"> {{element.password}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="displayname">
+      <th mat-header-cell *matHeaderCellDef> Display Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.displayname}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef> Update</th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="openModal(template)" mat-raised-button>
+          <i class="material-icons">
+            save
+          </i> Update
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete</th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="openModal(template)" mat-raised-button>
+          <i class="material-icons">
+            delete
+          </i> Delete
+        </button>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
 </div>
 
-
-<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="userModalLabel">New message</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Recipient:</label>
-                  <input type="text" class="form-control" id="recipient-name">
-                </div>
-                <div class="form-group">
-                  <label for="message-text" class="col-form-label">Message:</label>
-                  <textarea class="form-control" id="message-text"></textarea>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Send message</button>
-            </div>
-          </div>
-        </div>
-      </div>
