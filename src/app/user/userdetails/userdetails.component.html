@@ -1,0 +1,19 @@
+<div *ngIf="user">
+    <div>
+        <label>User Name: </label> {{user.username}}
+    </div>
+    <div>
+        <label>Password: </label> {{user.password}}
+    </div>
+    <div>
+        <label>Display Name: </label> {{user.displayname}}
+    </div>
+
+    <!-- <span class="button is-small btn-primary" *ngIf='user.active' (click)='updateActive(false)'>Inactive</span> -->
+
+    <!-- <span class="button is-small btn-primary" *ngIf='!user.active' (click)='updateActive(true)'>Active</span> -->
+
+    <span class="button is-small btn-danger" (click)='deleteUser()'>Delete</span>
+
+    <hr />
+</div>
