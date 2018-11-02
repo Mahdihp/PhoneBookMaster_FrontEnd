@@ -1,10 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {UsersService} from 'src/app/services/users.service';
-import {UserData} from 'src/app/model/UserData';
-import {User} from '../../model/User';
-import {MatDialog, MatDialogConfig} from '@angular/material';
-import {UserDialogComponent} from '../user-dialog/user-dialog.component';
-import {stringify} from 'querystring';
+import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
+import { UserData } from 'src/app/model/UserData';
+import { User } from '../../model/User';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { UserDialogComponent } from '../user-dialog/user-dialog.component';
+import { stringify } from 'querystring';
+import { MessageBoxComponent } from 'src/app/message-box/message-box.component';
+import { MessageDialog } from 'src/app/model/MessageDialog';
 
 
 @Component({
@@ -39,8 +41,24 @@ export class UserListComponent implements OnInit {
         }
       );
   }
+  openMessageBox({ userId }: MessageDialog) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.minWidth = 500;
 
-  opendialog({userId, username, password, displayname}: User) {
+    console.log(userId);
+    dialogConfig.data = {
+      userId
+    };
+    const dialogRef = this.dialog.open(MessageBoxComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(
+      val => {
+        console.log(val);
+      }
+    );
+  }
+  showUpdateDialog({ userId, username, password, displayname }: User) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
@@ -56,13 +74,13 @@ export class UserListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(
       val => {
         if (val != null) {
-         this.saveUser(val)
+          this.saveUser(val)
         }
       }
     );
 
   }
-  saveUser(user:User){
+  saveUser(user: User) {
     console.log('afterClosed saveUser' + JSON.stringify(user));
   }
 }

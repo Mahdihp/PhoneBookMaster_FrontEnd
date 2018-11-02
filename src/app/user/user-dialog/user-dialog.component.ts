@@ -15,14 +15,12 @@ export class UserDialogComponent implements OnInit {
   username: string;
   password: string;
   displayname: string;
-  // user: User;
 
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<UserDialogComponent>,
     @Inject(MAT_DIALOG_DATA) {userId, username, password, displayname}: User) {
 
-    // console.log("logg "+ this.user.username);
     this.userId = userId;
     this.username = username;
     this.password = password;

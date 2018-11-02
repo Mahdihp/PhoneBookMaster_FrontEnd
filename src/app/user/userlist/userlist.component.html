@@ -1,33 +1,33 @@
 <h1>
-  User List
+  لیست کاربران
 </h1>
 <div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="userId">
-      <th mat-header-cell *matHeaderCellDef> No.</th>
-      <td mat-cell *matCellDef="let element"> {{ element.index}}</td>
+      <th mat-header-cell *matHeaderCellDef> # </th>
+      <td mat-cell *matCellDef="let element; let i = index;"> {{ i +1}}</td>
     </ng-container>
 
     <ng-container matColumnDef="username">
-      <th mat-header-cell *matHeaderCellDef > User Name</th>
+      <th mat-header-cell *matHeaderCellDef>نام کاربری</th>
       <td mat-cell *matCellDef="let element"> {{element.username}}</td>
     </ng-container>
 
     <ng-container matColumnDef="password">
-      <th mat-header-cell *matHeaderCellDef> Password </th>
+      <th mat-header-cell *matHeaderCellDef> پسورد</th>
       <td mat-cell *matCellDef="let element"> {{element.password}}</td>
     </ng-container>
 
     <ng-container matColumnDef="displayname">
-      <th mat-header-cell *matHeaderCellDef> Display Name</th>
+      <th mat-header-cell *matHeaderCellDef>نام نمایشی</th>
       <td mat-cell *matCellDef="let element"> {{element.displayname}}</td>
     </ng-container>
 
     <ng-container matColumnDef="update">
-      <th mat-header-cell *matHeaderCellDef> Update</th>
+      <th mat-header-cell *matHeaderCellDef> ویرایش</th>
       <td mat-cell *matCellDef="let element">
-        <button mat-button class="mat-raised-button mat-primary" (click)="opendialog(element)">
+        <button mat-button class="mat-raised-button mat-primary" (click)="showUpdateDialog(element)">
           <i class="material-icons">
             save
           </i> Update
@@ -36,9 +36,12 @@
     </ng-container>
 
     <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef> Delete</th>
+      <th mat-header-cell *matHeaderCellDef> حذف</th>
       <td mat-cell *matCellDef="let element">
-        <button mat-button class="mat-raised-button mat-warn" (click)="opendialog(element)">
+        <button mat-button class="mat-raised-button mat-warn" (click)="openMessageBox(element<mat-form-field>
+            <input  matInput formControlName="userId" placeholder="نام کاربری">
+          </mat-form-field>
+      )">
           <i class="material-icons">
             delete
           </i> Delete

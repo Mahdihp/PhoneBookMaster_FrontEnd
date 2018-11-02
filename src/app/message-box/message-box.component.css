@@ -1,0 +1,19 @@
+
+
+.mat-form-field {
+    display: block;
+  }
+  
+  textarea {
+    height: 100px;
+    resize: vertical;
+  }
+  h2{
+    font-family: IRANSans;
+    text-align: right;
+  }
+  mat-form-field,button{
+    font-family: IRANSans;
+  
+  }
+  

@@ -8,8 +8,13 @@ p,td{
 }
 table, th, td ,tr{
   margin-left: 5px;
-  margin-right: 5px;
+  margin-right: 10px;
+  font-family: IRANSans;
+  text-align: center;
 }
 th{
   width: 80px;
+}
+.mat-row:hover {
+  background-color: #209fff;
 }
