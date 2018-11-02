@@ -4,6 +4,7 @@ import {UserData} from 'src/app/model/UserData';
 import {User} from '../../model/User';
 import {MatDialog, MatDialogConfig} from '@angular/material';
 import {UserDialogComponent} from '../user-dialog/user-dialog.component';
+import {stringify} from 'querystring';
 
 
 @Component({
@@ -46,7 +47,7 @@ export class UserListComponent implements OnInit {
     dialogConfig.minWidth = 500;
 
     dialogConfig.data = {
-      userId,username , password, displayname
+      userId, username, password, displayname
     };
     // this.data = {userId, username, password, displayname};
     const dialogRef = this.dialog.open(UserDialogComponent, dialogConfig);
@@ -54,20 +55,15 @@ export class UserListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(
       val => {
-        // if (val != null)
-        console.log('afterClosed ' + val.username);
-        // this.showUser(val);
+        if (val != null) {
+         this.saveUser(val)
         }
-      );
+      }
+    );
 
   }
-
-  showUser(val) {
-    console.log('showUser ' + val.username);
+  saveUser(user:User){
+    console.log('afterClosed saveUser' + JSON.stringify(user));
   }
-
-  // showUser({userId,username,password,displayname} : User){
-  //   console.log("showUser "+username);
-  // }
 }
 

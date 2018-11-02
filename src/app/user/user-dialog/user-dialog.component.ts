@@ -49,7 +49,6 @@ export class UserDialogComponent implements OnInit {
 
   save() {
     this.dialogRef.close(this.form.value);
-    console.log("save 1"+this.form.value)
   }
 
   close() {
