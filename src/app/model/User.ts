@@ -27,4 +27,5 @@ export class User{
     public set displayname(value: string) {
         this._displayname = value;
     }
+
 }

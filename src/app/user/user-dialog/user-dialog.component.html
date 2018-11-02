@@ -1,3 +1,28 @@
-<p>
-  user-dialog works!
-</p>
+<h2 mat-dialog-title>ویرایش کاربر</h2>
+
+
+<mat-dialog-content id="frm" [formGroup]="form">
+
+  <mat-form-field>
+    <input id="txt" matInput formControlName="username" placeholder="نام کاربری">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input  matInput formControlName="password" placeholder="رمز عبور">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input  matInput formControlName="displayname" placeholder="نام نمایشی">
+  </mat-form-field>
+
+
+</mat-dialog-content>
+
+
+
+
+<div mat-dialog-actions>
+  <button mat-button class="mat-raised-button mat-warn" (click)="close()">انصراف</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">ذخیره</button>
+</div>
+
