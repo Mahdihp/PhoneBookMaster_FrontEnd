@@ -7,6 +7,9 @@ p,td{
     /* font-size: 20px; */
 }
 table, th, td ,tr{
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+th{
+  width: 80px;
 }

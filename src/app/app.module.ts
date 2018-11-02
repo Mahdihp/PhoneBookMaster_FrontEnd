@@ -6,14 +6,16 @@ import { UserComponent } from './user/user.component';
 import { UserListComponent } from './user/userlist/userlist.component';
 import { UserDetailsComponent } from './user/userdetails/userdetails.component';
 import { HttpClientModule } from '@angular/common/http'; 
-import {MatButtonModule, MatTableModule} from '@angular/material';
+import {MatButtonModule, MatDialogModule, MatTableModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { UserDialogComponent } from './user/user-dialog/user-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     UserListComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    UserDialogComponent
   ],
   imports: [
     MatTableModule,
@@ -21,6 +23,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatButtonModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatDialogModule,
     BrowserModule
   ],
   exports :[MatButtonModule],
