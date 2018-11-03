@@ -38,7 +38,7 @@
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef> حذف</th>
       <td mat-cell *matCellDef="let element">
-        <button mat-button class="mat-raised-button mat-warn" (click)="openMessageBox(element)">
+        <button mat-button class="mat-raised-button mat-warn" (click)="showDeleteDialog(element)">
           <i class="material-icons"> delete </i>
           Delete
         </button>

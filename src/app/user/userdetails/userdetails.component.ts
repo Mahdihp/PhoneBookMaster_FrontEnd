@@ -34,7 +34,7 @@ export class UserDetailsComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          this.listComponent.reloadData();
+          this.listComponent.loadAllData();
         },
         error => console.log(error));
   }

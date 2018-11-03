@@ -28,11 +28,11 @@ export class UserListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.reloadData();
+    this.loadAllData();
   }
 
 
-  reloadData() {
+  loadAllData() {
     this.userService.getUserList()
       .subscribe(
         resp => {
@@ -41,20 +41,26 @@ export class UserListComponent implements OnInit {
         }
       );
   }
-  openMessageBox({ userId }: MessageDialog) {
+  showDeleteDialog({ userId }: MessageDialog) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
     dialogConfig.minWidth = 500;
 
-    console.log(userId);
     dialogConfig.data = {
       userId
     };
     const dialogRef = this.dialog.open(MessageBoxComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(
       val => {
-        console.log(val);
+        if (val != null) {
+          this.userService.deleteUser(val.userId).subscribe(
+            value => {
+             this.loadAllData();
+            }
+          )
+          // console.log(val.userId);
+        }
       }
     );
   }
@@ -78,10 +84,15 @@ export class UserListComponent implements OnInit {
         }
       }
     );
-
   }
   saveUser(user: User) {
-    console.log('afterClosed saveUser' + JSON.stringify(user));
+    console.log(user.userId+' afterClosed saveUser ' + JSON.stringify(user));
+    this.userService.updateUser(user.userId,user).subscribe(
+      value => {
+        this.loadAllData();
+        console.log(value);
+      }
+    );
   }
 }
 
