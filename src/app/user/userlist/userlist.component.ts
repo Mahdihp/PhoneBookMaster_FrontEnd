@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { UsersService } from 'src/app/services/users.service';
-import { UserData } from 'src/app/model/UserData';
-import { User } from '../../model/User';
-import { MatDialog, MatDialogConfig } from '@angular/material';
-import { UserDialogComponent } from '../user-dialog/user-dialog.component';
-import { stringify } from 'querystring';
-import { MessageBoxComponent } from 'src/app/message-box/message-box.component';
-import { MessageDialog } from 'src/app/model/MessageDialog';
+import {Component, OnInit} from '@angular/core';
+import {UsersService} from 'src/app/services/users.service';
+import {UserData} from 'src/app/model/UserData';
+import {User} from '../../model/User';
+import {MatDialog, MatDialogConfig} from '@angular/material';
+import {UserDialogComponent} from '../user-dialog/user-dialog.component';
+import {MessageBoxComponent} from 'src/app/message-box/message-box.component';
+import {MessageDialog} from 'src/app/model/MessageDialog';
 
 
 @Component({
@@ -41,7 +40,8 @@ export class UserListComponent implements OnInit {
         }
       );
   }
-  showDeleteDialog({ userId }: MessageDialog) {
+
+  showDeleteDialog({userId}: MessageDialog) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
@@ -56,15 +56,16 @@ export class UserListComponent implements OnInit {
         if (val != null) {
           this.userService.deleteUser(val.userId).subscribe(
             value => {
-             this.loadAllData();
+              this.loadAllData();
             }
-          )
+          );
           // console.log(val.userId);
         }
       }
     );
   }
-  showUpdateDialog({ userId, username, password, displayname }: User) {
+
+  showUpdateDialog({userId, username, password, displayname}: User) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
@@ -80,19 +81,43 @@ export class UserListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(
       val => {
         if (val != null) {
-          this.saveUser(val)
+          this.saveUser(val);
         }
       }
     );
   }
+
   saveUser(user: User) {
-    console.log(user.userId+' afterClosed saveUser ' + JSON.stringify(user));
-    this.userService.updateUser(user.userId,user).subscribe(
+    console.log(user.userId + ' afterClosed saveUser ' + JSON.stringify(user));
+    this.userService.updateUser(user.userId, user).subscribe(
       value => {
         this.loadAllData();
         console.log(value);
       }
     );
+  }
+
+  newUserDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.minWidth = 500;
+
+    dialogConfig.data = {};
+    const dialogRef = this.dialog.open(UserDialogComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(
+      val => {
+        if (val != null) {
+          this.newUser(val);
+        }
+      }
+    );
+  }
+
+  private newUser(val: User) {
+    this.userService.createUser(val).subscribe(value => {
+      console.log(value);
+    });
   }
 }
 
