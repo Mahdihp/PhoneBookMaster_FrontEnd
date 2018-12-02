@@ -20,6 +20,8 @@ import {UsersService} from './services/user/users.service';
 import { MessageBoxComponent } from './message-box/message-box.component';
 import { ContactComponent } from './contact/contact.component';
 import { ContactListComponent } from './contact/contact-list/contact-list.component';
+import { ContactDialogComponent } from './contact/contact-dialog/contact-dialog.component';
+import {ContactsService} from './services/contact/contacts.service';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,10 @@ import { ContactListComponent } from './contact/contact-list/contact-list.compon
     UserDialogComponent,
     MessageBoxComponent,
     ContactComponent,
-    ContactListComponent
+    ContactListComponent,
+    ContactDialogComponent
   ],
-  entryComponents: [UserDialogComponent,MessageBoxComponent],
+  entryComponents: [UserDialogComponent,MessageBoxComponent,ContactDialogComponent],
   imports: [
     MatTableModule,
     MatButtonModule,
@@ -48,7 +51,7 @@ import { ContactListComponent } from './contact/contact-list/contact-list.compon
     MatSelectModule
   ],
   exports :[MatButtonModule],
-  providers: [UsersService],
+  providers: [UsersService,ContactsService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

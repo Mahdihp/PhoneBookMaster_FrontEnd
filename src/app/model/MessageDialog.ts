@@ -1,3 +1,4 @@
 export class MessageDialog {
-    userId: string;
-  }
+  userId: string;
+  contactId: string;
+}

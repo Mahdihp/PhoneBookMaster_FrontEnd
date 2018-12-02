@@ -1,0 +1,44 @@
+<h2 mat-dialog-title>ویرایش مخاطب</h2>
+
+
+<mat-dialog-content [formGroup]="form">
+
+  <mat-form-field>
+    <input matInput formControlName="firstName" placeholder="نام">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="lastName" placeholder="نام خانوادگی">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="homePhone" placeholder="تلفن">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="mobile" placeholder="موبایل">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="email" placeholder="ایمیل">
+  </mat-form-field>
+
+
+  <!--<mat-form-field>-->
+  <!--<mat-select placeholder="سطح دست رسی" panelClass="{{panelColor.value}}" [formControl]="panelColor">-->
+
+  <!--<mat-option value="Admin">ادمین</mat-option>-->
+  <!--<mat-option value="User">کاربر معمولی</mat-option>-->
+  <!--<mat-option value="Geust">مهمان</mat-option>-->
+
+  <!--</mat-select>-->
+  <!--</mat-form-field>-->
+
+</mat-dialog-content>
+
+
+<div mat-dialog-actions>
+  <button mat-button class="mat-raised-button mat-warn" (click)="close()">انصراف</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">ذخیره</button>
+</div>
+
