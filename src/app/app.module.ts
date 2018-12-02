@@ -18,6 +18,8 @@ import {UserDialogComponent} from './user/user-dialog/user-dialog.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UsersService} from './services/user/users.service';
 import { MessageBoxComponent } from './message-box/message-box.component';
+import { ContactComponent } from './contact/contact.component';
+import { ContactListComponent } from './contact/contact-list/contact-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { MessageBoxComponent } from './message-box/message-box.component';
     UserListComponent,
     UserDetailsComponent,
     UserDialogComponent,
-    MessageBoxComponent
+    MessageBoxComponent,
+    ContactComponent,
+    ContactListComponent
   ],
   entryComponents: [UserDialogComponent,MessageBoxComponent],
   imports: [
