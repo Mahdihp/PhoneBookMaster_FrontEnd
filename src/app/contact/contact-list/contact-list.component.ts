@@ -38,6 +38,7 @@ export class ContactListComponent implements OnInit {
       );
   }
 
+
   showDeleteDialog({contactId}: MessageDialog) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
