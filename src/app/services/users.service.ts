@@ -14,14 +14,14 @@ export class UsersService {
   private baseUrl = 'http://localhost:8080/api/v1/users';
 
   getUser(id: number): Observable<HttpResponse<User>> {
-    return this.http.get<User>(this.baseUrl + '/item/' + id, {observe: 'response'});
+    return this.http.get<User>(this.baseUrl + '/' + id, {observe: 'response'});
   }
 
-  createUser(user: User): Observable<Object> {
-    const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
-    };
-    return this.http.post(this.baseUrl + '/create/', JSON.stringify(user), httpOptions);
+  createUser(user: Object): Observable<Object> {
+    // const httpOptions = {
+    //   headers: new HttpHeaders({'Content-Type': 'application/json'})
+    // };
+    return this.http.post(this.baseUrl + '/create/', user);
   }
 
   updateUser(id: string, value: User): Observable<UserData> {

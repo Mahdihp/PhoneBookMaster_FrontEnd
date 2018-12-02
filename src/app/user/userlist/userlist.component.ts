@@ -36,7 +36,8 @@ export class UserListComponent implements OnInit {
       .subscribe(
         resp => {
           this.users = resp.body;
-          this.dataSource = this.users[0].dataList;
+          this.dataSource = this.users.dataList;
+
         }
       );
   }
@@ -114,8 +115,9 @@ export class UserListComponent implements OnInit {
   }
 
   private newUser(val: User) {
+    console.log(val)
     this.userService.createUser(val).subscribe(value => {
-      console.log(value);
+      this.loadAllData();
     });
   }
 }
