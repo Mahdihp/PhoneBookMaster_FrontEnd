@@ -1,0 +1,65 @@
+<h1>
+  لیست مخاطبین
+</h1>
+<div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+
+    <ng-container matColumnDef="contactId">
+      <th mat-header-cell *matHeaderCellDef> #</th>
+      <td mat-cell *matCellDef="let element; let i = index;"> {{ i +1}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>نام </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef> نام خانوادگی</th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="homePhone">
+      <th mat-header-cell *matHeaderCellDef> تلفن</th>
+      <td mat-cell *matCellDef="let element"> {{element.homePhone}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="mobile">
+      <th mat-header-cell *matHeaderCellDef> موبایل</th>
+      <td mat-cell *matCellDef="let element"> {{element.mobile}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> ایمیل</th>
+      <td mat-cell *matCellDef="let element"> {{element.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef> ویرایش</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button class="mat-raised-button mat-primary" (click)="showUpdateDialog(element)">
+          <i class="material-icons">
+            save
+          </i> Update
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> حذف</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button class="mat-raised-button mat-warn" (click)="showDeleteDialog(element)">
+          <i class="material-icons"> delete </i>
+          Delete
+        </button>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <br>
+  <button mat-fab (click)="newUserDialog()"> <i class="material-icons"> add </i></button>
+</div>
+

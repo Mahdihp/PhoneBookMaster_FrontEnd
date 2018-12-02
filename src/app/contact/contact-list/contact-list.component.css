@@ -1,0 +1,39 @@
+h1{
+  font-family: IRANSans;
+  font-size: 20px;
+}
+p,td{
+  font-family: IRANSans;
+  /* font-size: 20px; */
+}
+table, th, td ,tr{
+  margin-left: 5px;
+  margin-right: 10px;
+  font-family: IRANSans;
+  text-align: center;
+}
+th{
+  width: 80px;
+}
+.mat-row:hover {
+  background-color: #209fff;
+}
+.mat-column-firstName {
+ padding-right: 20px;
+}
+.mat-column-lastName {
+  padding-right: 20px;
+}
+.mat-column-homePhone {
+  padding-right: 20px;
+}
+.mat-column-mobile {
+  padding-right: 20px;
+}
+.mat-column-email {
+  padding-right: 20px;
+}
+.mat-column-update {
+  padding-right: 20px;
+}
+
