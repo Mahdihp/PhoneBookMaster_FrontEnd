@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
 import { UserListComponent } from '../userlist/userlist.component';
-import { from } from 'rxjs';
 import { User } from 'src/app/model/User';
 @Component({
   selector: 'app-userdetails',
@@ -16,12 +15,8 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit() {
   }
-  updateUser(n) {
-    this.userService.updateUser(this.user.userId,
-      {
-        username: this.user.username, password: this.user.password,
-        displayname: this.user.displayname
-      })
+  updateUser() {
+    this.userService.updateUser(this.user.userId,this.user)
       .subscribe(
         data => {
           console.log(data);

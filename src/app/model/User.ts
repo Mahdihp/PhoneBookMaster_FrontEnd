@@ -1,4 +1,3 @@
-import {Role} from './Role';
 
 export class User {
   private _userId: string;
@@ -35,16 +34,5 @@ export class User {
 
   public set displayname(value: string) {
     this._displayname = value;
-  }
-
-  private _role: Role;
-
-
-  get role(): Role {
-    return this._role;
-  }
-
-  set role(value: Role) {
-    this._role = value;
   }
 }

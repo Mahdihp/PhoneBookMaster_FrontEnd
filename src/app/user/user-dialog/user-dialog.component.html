@@ -4,30 +4,29 @@
 <mat-dialog-content [formGroup]="form">
 
   <mat-form-field>
-    <input  matInput formControlName="username" placeholder="نام کاربری">
+    <input matInput formControlName="username" placeholder="نام کاربری">
   </mat-form-field>
 
   <mat-form-field>
-    <input  matInput formControlName="password" placeholder="رمز عبور">
+    <input matInput formControlName="password" placeholder="رمز عبور">
   </mat-form-field>
 
   <mat-form-field>
-    <input  matInput formControlName="displayname" placeholder="نام نمایشی">
+    <input matInput formControlName="displayname" placeholder="نام نمایشی">
   </mat-form-field>
 
-  <mat-form-field>
-    <mat-select placeholder="سطح دست رسی">
-      <!--<mat-option *ngFor="let food of foods" [value]="role">-->
-        <!--{{food.viewValue}}-->
-      <!--</mat-option>-->
-      <option value="volvo1">Volvo</option>
-      <option value="volvo2">Volvo</option>
-    </mat-select>
-  </mat-form-field>
+
+  <!--<mat-form-field>-->
+    <!--<mat-select placeholder="سطح دست رسی" panelClass="{{panelColor.value}}" [formControl]="panelColor">-->
+
+      <!--<mat-option value="Admin">ادمین</mat-option>-->
+      <!--<mat-option value="User">کاربر معمولی</mat-option>-->
+      <!--<mat-option value="Geust">مهمان</mat-option>-->
+
+    <!--</mat-select>-->
+  <!--</mat-form-field>-->
 
 </mat-dialog-content>
-
-
 
 
 <div mat-dialog-actions>

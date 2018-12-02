@@ -36,7 +36,7 @@ export class UserListComponent implements OnInit {
       .subscribe(
         resp => {
           this.users = resp.body;
-          this.dataSource = this.users.dataList;
+          this.dataSource = this.users[0].dataList;
         }
       );
   }
@@ -88,11 +88,10 @@ export class UserListComponent implements OnInit {
   }
 
   saveUser(user: User) {
-    console.log(user.userId + ' afterClosed saveUser ' + JSON.stringify(user));
+    console.log(user.userId + ' afterClosed saveUser ');
     this.userService.updateUser(user.userId, user).subscribe(
       value => {
         this.loadAllData();
-        console.log(value);
       }
     );
   }

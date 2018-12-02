@@ -11,7 +11,7 @@ export class UsersService {
   constructor(private http: HttpClient) {
   }
 
-  private baseUrl = 'http://localhost:8080/user';
+  private baseUrl = 'http://localhost:8080/api/v1/users';
 
   getUser(id: number): Observable<HttpResponse<User>> {
     return this.http.get<User>(this.baseUrl + '/item/' + id, {observe: 'response'});
@@ -36,7 +36,7 @@ export class UsersService {
   }
 
   getUserList(): Observable<HttpResponse<UserData>> {
-    return this.http.get<UserData>(this.baseUrl + '/users', {observe: 'response'});
+    return this.http.get<UserData>(this.baseUrl , {observe: 'response'});
   }
 
 }

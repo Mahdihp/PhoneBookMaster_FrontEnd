@@ -1,12 +1,13 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Component, Inject, OnInit, ViewEncapsulation} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {User} from '../../model/User';
+import {Role} from '../../model/Role';
 
 @Component({
   selector: 'app-user-dialog',
   templateUrl: './user-dialog.component.html',
-  styleUrls: ['./user-dialog.component.css']
+  styleUrls: ['./user-dialog.component.css'],
 })
 export class UserDialogComponent implements OnInit {
 
@@ -15,6 +16,8 @@ export class UserDialogComponent implements OnInit {
   username: string;
   password: string;
   displayname: string;
+
+  // panelColor ;
 
   constructor(
     private fb: FormBuilder,
@@ -26,16 +29,16 @@ export class UserDialogComponent implements OnInit {
     this.password = password;
     this.displayname = displayname;
 
+   // this.panelColor = new FormControl();
+   // console.log(this.panelColor);
 
     this.form = fb.group({
       userId: [userId, Validators.required],
       username: [username, Validators.required],
       password: [password, Validators.required],
       displayname: [displayname, Validators.required]
-      // user: [user, Validators.required],
-      // category: ["categort", Validators.required],
-      // releasedAt: [moment(), Validators.required],
-      // longDescription: ["description", Validators.required]
+     // panelColor: [this.panelColor, Validators.required]
+
     });
 
   }
