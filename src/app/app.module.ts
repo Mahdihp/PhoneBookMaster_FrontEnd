@@ -16,7 +16,7 @@ import {
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {UserDialogComponent} from './user/user-dialog/user-dialog.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {UsersService} from './services/users.service';
+import {UsersService} from './services/user/users.service';
 import { MessageBoxComponent } from './message-box/message-box.component';
 
 @NgModule({
