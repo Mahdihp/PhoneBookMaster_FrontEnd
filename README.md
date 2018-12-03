@@ -1,7 +1,11 @@
 # PhoneBookMaster
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.4.
-
+<img src='Screenshot from 2018-12-02 22-47-13.png'>
+<img src='Screenshot from 2018-12-02 22-50-45.png'>
+<img src='Screenshot from 2018-12-02 22-50-50.png'>
+<img src='Screenshot from 2018-12-03 22-09-11.png'>
+<img src='Screenshot from 2018-12-03 22-09-15.png'>
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
