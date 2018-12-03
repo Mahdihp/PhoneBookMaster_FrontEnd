@@ -9,9 +9,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {
   MatButtonModule,
   MatDatepickerModule,
-  MatDialogModule,
-  MatInputModule, MatSelectModule,
-  MatTableModule
+  MatDialogModule, MatGridListModule,
+  MatInputModule, MatMenuModule, MatSelectModule,
+  MatTableModule, MatToolbarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {UserDialogComponent} from './user/user-dialog/user-dialog.component';
@@ -22,6 +22,8 @@ import { ContactComponent } from './contact/contact.component';
 import { ContactListComponent } from './contact/contact-list/contact-list.component';
 import { ContactDialogComponent } from './contact/contact-dialog/contact-dialog.component';
 import {ContactsService} from './services/contact/contacts.service';
+import {AppRoutingModule} from './app-routing/app-routing.module';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -33,10 +35,12 @@ import {ContactsService} from './services/contact/contacts.service';
     MessageBoxComponent,
     ContactComponent,
     ContactListComponent,
-    ContactDialogComponent
+    ContactDialogComponent,
+    NotFoundComponent
   ],
   entryComponents: [UserDialogComponent,MessageBoxComponent,ContactDialogComponent],
   imports: [
+    AppRoutingModule,
     MatTableModule,
     MatButtonModule,
     MatDatepickerModule,
@@ -48,7 +52,10 @@ import {ContactsService} from './services/contact/contacts.service';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatGridListModule
   ],
   exports :[MatButtonModule],
   providers: [UsersService,ContactsService],
